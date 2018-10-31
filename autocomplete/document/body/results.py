@@ -19,8 +19,8 @@ def render(querytext):
   # look for hits that have seats in use and print detail
   for hit in hits:
       ref = hit.find("{http://schemas.autonomy.com/aci/}reference").text
-      lref = string.replace(ref,"/var/Autonomy/SANTANDER/www","http://127.0.0.1")
-      dref = string.replace(ref,"/var/Autonomy/SANTANDER/www","http://")
+      lref = string.replace(ref,"/var/Webroot/DEMO/www","http://127.0.0.1")
+      dref = string.replace(ref,"/var/Webroot/DEMO/www","http://")
       tit = hit.find("{http://schemas.autonomy.com/aci/}title").text
       #print "<tr><td><a href=\"+lref+"\">"+dref+"<a/><br/>"+tit+"<br/><br/></td></tr>"
       print "<tr><td><a href=\""+lref+"\">"+dref+"<a/><br/>"+tit.encode('utf-8')+"<br/><br/></td></tr>"
