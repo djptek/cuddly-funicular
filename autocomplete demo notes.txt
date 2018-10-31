@@ -1,0 +1,65 @@
+steps to configure (windows)
+
+IronPython2.7
+NWSGI 2.1
+
+
+
+step linux
+
+
+
+
+1. pre-requisistes 
+1.1 a working idol install on your network
+1.2 content in the idol install 
+1.3 ideally, use
+
+[Server]
+QuerySummaryAdvanced=true
+
+the demo can be configured to work without this, but functionality will be reduced
+
+2. prepare environment
+
+2.1 install a webserver - I suggest httpd apache2 webserver which can be downloaded here:
+http://apache.rediris.es//httpd/binaries/win32/httpd-2.2.22-win32-x86-no_ssl.msi
+
+2.2. install python 2.6/2.7 - you can use www.python.org or activestate, I used this one:
+http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi
+
+3. deploy demo
+3.1 copy autocomplete_demo.zip to C:\Program Files (x86)\Apache Software Foundation\Apache2.2\cgi-bin
+3.2 unzip, making sure the folder "autocomplete" is in the folder "cgi-bin" and not in a subfolder 
+
+4. configure
+4.1 Make sure Httpd/Apache knows where the python executable is - check the 1st line of  ...\cgi-bin\autocomplete\default.py points to your Python executable e.g.
+
+#!/Python27/python.exe
+points to 
+C:\Python27\python.exe
+
+and that python.exe exists in that directory-
+
+If not, check step 2.2 &/or create this directory and copy your python.exe into the new directory, or, alternatively, amend all *.py files using an automated process.
+ 
+4.2 Make sure the AJAX (jquery) javascript knows where the rest of the python codes is so it can use a shared config file - check this file
+
+...\cgi-bin\autocomplete\ajax\autocomplete.py
+
+sys.path.append("/Program Files (x86)/Apache Software Foundation/Apache2.2/cgi-bin/autocomplete")
+
+points to the directory where the python code was deployed
+
+4.3 Make sure the python code can find idol - edit 
+
+...\cgi-bin\autocomplete\idol\config.py 
+
+to point to your idol server
+
+
+Notes: if you want to read the end of e.g. an httpd log file, use Notepadd++ or install the Windows 2003 Resource Kit tools: 
+
+http://www.microsoft.com/en-us/download/details.aspx?id=17657
+
+and then use tail.exe to look at the end of the file

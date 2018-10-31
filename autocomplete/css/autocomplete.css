@@ -1,0 +1,44 @@
+    <style>
+        h1 {
+            background: #FFFFFF;
+            font-size: 36;
+            align: left;
+            font-family: verdana, arial, helvetica;
+        }
+        h2 {
+            background: #FFFFFF;
+            font-size: 18;
+            align: left;
+            font-family: verdana, arial, helvetica;
+        }
+        .results {
+            margin: 20px auto;;
+            padding: 20px;
+            border: #1px #CCC solid;
+            background: #FFFFFF;
+            width: 800;
+            font-size: 13px;
+            font-family: verdana, arial, helvetica;
+        }
+        form {
+            margin: 20px auto;;
+            padding: 20px;
+            border: #1px #CCC solid;
+            background: #EDEDED;
+            width: 640px;
+            font-size: 11px;
+            font-family: verdana, arial, helvetica;
+        }
+        input {
+            display: block;
+            margin-top: 8px;
+        }
+      	.ui-autocomplete {
+            font-size: 11px;
+            font-family: verdana, arial, helvetica;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+    </style>
+

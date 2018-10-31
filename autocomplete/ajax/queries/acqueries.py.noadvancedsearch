@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import json
+from queries import iqlquery
+from queries import spellquery
+from queries import recentquery
+from queries import suffixquery
+#from queries import txquery
+from queries import dedup
+
+def query(querytext=''):
+
+  # package as JSON and return
+  return json.JSONEncoder().encode(\
+    suffixquery.query(querytext)+
+#    txquery.query(querytext)+
+    iqlquery.query(querytext)+
+    spellquery.query(querytext)+
+    recentquery.query(querytext))
+
